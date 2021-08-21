@@ -1,0 +1,124 @@
+no_trainings: 5
+io_var:
+  save_dir: ./Results/
+  save_folder_name: table_3
+  save_subfolder_name: sketchy_id5
+  train_dataset_list: 
+    - ./Data/Sketchy/original_classes_real_train_train.csv
+  val_dataset_list:
+    - ./Data/Sketchy/original_classes_real_train_val.csv
+  test_dataset_list: 
+    - name: sketchy
+      directory:
+        - ./Data/Sketchy/original_classes_sketches_test.csv
+  load_model: ./Pretrained_Models/im4sketch_model.pt #a valid option is None
+  nms_model: ./Pretrained_Models/opencv_extra.yml.gz
+train:
+  gpu: 6
+  workers: 6
+  batch: 64
+  learning_rate: 0.0001
+  weight_decay: 0
+  epochs: 30
+  schedule: 10
+  architecture: resnet101
+  pretrained: True
+  optimizer: Adam #only Adam is currently supported
+  criterion: cross_entropy #only cross entropy is currently supported
+extra_options:
+  lr_mode: True
+  nearest_neighbors: False #currently not supported
+train_transforms:
+  - name: square
+    prob: 100
+  - name: pad
+    percent: [0, 0]
+    color: [0, 0, 0]
+  - name: resize
+    size: 256
+  - name: random_affine
+    degrees: 5
+    shear: 0
+  - name: random_resized_crop
+    size: 224
+    scale: [0.8, 1.0]
+    ratio: [0.75, 1.3333333333333333]
+  - name: random_horizontal_flip
+    p: 0.5
+  - name: edge_detector
+    edge_mode: normal
+  - name: ori_nms
+    prob: 100
+    radious: 2
+    bound_radious: 0
+    multi: 1.0
+  - name: thresholder
+    thinning: False
+    hyst_prob: 100
+    hyst_par: [0.5, 1.5]
+    hyst_pert: 0.2
+    thresh_mode: normal
+    thresh_rand: 20
+  - name: cleaner
+    percent_of_cc: [100, 100]
+    delete_less_than: [10, 10]
+val_transforms:
+  - name: square
+    prob: 100
+  - name: pad
+    percent: [0, 0]
+    color: [0, 0, 0]
+  - name: resize
+    size: 224
+  - name: center_crop
+    value: 224
+  - name: edge_detector
+    edge_mode: hed
+  - name: ori_nms
+    prob: 100
+    radious: 2
+    bound_radious: 0
+    multi: 1.0
+  - name: thresholder
+    thinning: False
+    hyst_prob: 100
+    hyst_par: [0.5, 1.5]
+    hyst_pert: 0
+    thresh_mode: otsu
+    thresh_rand: 0
+  - name: cleaner
+    percent_of_cc: [100, 100]
+    delete_less_than: [10, 10]
+test_transforms:
+  - name: single
+    transform:
+      - name: black_background
+      - name: square_np
+      - name: resize_np
+        size: 224
+      - name: thresholder
+        thinning: True
+        hyst_prob: 100
+        hyst_par: [0.5, 1.5]
+        hyst_pert: 0
+        thresh_mode: otsu
+        thresh_rand: 0
+      - name: cleaner
+        percent_of_cc: [100, 100]
+        delete_less_than: [10, 10]
+  - name: multi
+    transform:
+      - name: multi_scale
+        size: 224
+        size_multipliers: [0.9, 0.65, 0.45]
+        return_white_bg: False
+      - name: thresholder
+        thinning: True
+        hyst_prob: 100
+        hyst_par: [0.5, 1.5]
+        hyst_pert: 0
+        thresh_mode: otsu
+        thresh_rand: 0
+      - name: cleaner
+        percent_of_cc: [100, 100]
+        delete_less_than: [10, 10]
