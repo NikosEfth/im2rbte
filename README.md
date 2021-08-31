@@ -1,5 +1,15 @@
 # Large-Scale Sketch Classification
 
+## Dependencies
+
+* Install [PyTorch](http://pytorch.org/) and [torchvision](http://pytorch.org/)
+* Install yaml: `pip install pyyaml`
+* Install PIL: `pip install Pillow`
+* Install NumPy: `pip install numpy`
+* Install OpenCV: `pip install opencv-contrib-python`
+* Install Scikit-Image: `python -m pip install -U scikit-image`
+* Tested with Python 3.5.3 and PyTorch 1.3.1
+
 ## Downloader
 
 To download all the datasets and the pretrained models needed from http://ptak.felk.cvut.cz/im4sketch/
