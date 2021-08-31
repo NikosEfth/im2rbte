@@ -109,9 +109,9 @@ class SquareNP(object):
         height, width = image.shape
         size = max(height, width)
         offset = ((size - height) // 2, (size - width) // 2)
-        new_image = np.ones((size, size))
+        new_image = np.zeros((size, size))
         if np.sum(image) > np.sum(1-image):
-            new_image = np.zeros((size, size))
+            new_image = np.ones((size, size))
         new_image[offset[0]:offset[0]+height, offset[1]:offset[1]+width] = image
         return new_image
 
