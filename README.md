@@ -1,3 +1,7 @@
+# Large-Scale Sketch Classification
+
+## Downloader
+
 To download all the datasets and the pretrained models needed from http://ptak.felk.cvut.cz/im4sketch/
 ```
 python downloader.py 
@@ -7,5 +11,10 @@ python downloader.py
 * with `--delete` you choose if you want the tar files deleted after the extraction (default is no) ie `python downloader.py --delete yes`
 * with `--models` you specify if you want the nms model (mandatory for the method) and the im4sketch pretrained model (mandatory for id5 run) to be downloaded `python downloader.py --models yes`
 
+## Method run
 
+To run an experiment specified by the corresponding yaml file
+```
 python method.py --run run_sketchy_id5.yaml
+```
+
