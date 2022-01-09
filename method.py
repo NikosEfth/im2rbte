@@ -21,7 +21,7 @@ def train_test():
     args = parser.parse_args()
     if not sys.warnoptions:
         warnings.simplefilter('ignore')
-    run = ut.read_yaml(vars(args)['run'])
+    run = ut.read_yaml('./runs/' + vars(args)['run'])
     test_results = []
     for i in range(1, run['no_trainings'] + 1):
         direct = run['io_var']['save_dir'] + run['io_var']['save_folder_name'] + '/' \
