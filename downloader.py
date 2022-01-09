@@ -48,9 +48,9 @@ if vars(args)['models'].lower() in ['yes', 'true', 'y', 't']:
     if not os.path.exists('./Pretrained_Models'):
         os.makedirs('./Pretrained_Models')
     print('downloading the models')
-    urllib.request.urlretrieve('http://ptak.felk.cvut.cz/im4sketch/opencv_extra.yml.gz', 
+    urllib.request.urlretrieve('http://ptak.felk.cvut.cz/im4sketch/Models/opencv_extra.yml.gz', 
                                './Pretrained_Models/opencv_extra.yml.gz')
-    urllib.request.urlretrieve('http://ptak.felk.cvut.cz/im4sketch/im4sketch_model.pt', 
+    urllib.request.urlretrieve('http://ptak.felk.cvut.cz/im4sketch/Models/im4sketch_model.pt', 
                                './Pretrained_Models/im4sketch_model.pt')
 
 if vars(args)['download'].lower() in ['yes', 'true', 'y', 't']:
