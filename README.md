@@ -33,3 +33,6 @@ To run an experiment specified by the corresponding yaml file:
 python method.py --run run_sketchy_id5.yaml
 ```
 
+## Im4Sketch
+
+For more information about the Im4Sketch dataset please visit the [Im4Sketch](https://cmp.felk.cvut.cz/im4sketch/) dataset webpage
