@@ -30,12 +30,17 @@ def find_bounding_box(img):
     return bbox
 
 
-def keep_first_channel(image):
+def max_one(image):
     image = np.array(image)
-    if len(image.shape) > 2: 
-        image = image[:, :, 0]
     if np.amax(image) > 1: 
         image = image/255
+    return image
+
+
+def keep_first_channel(image):
+    image = max_one(image)
+    if len(image.shape) > 2: 
+        image = image[:, :, 0]
     return image
 
 
@@ -73,6 +78,7 @@ def thresh_function(thresh_mode):
 
 
 class ToStackTensor:
+    
     def __init__(self):
         self.to_tensor = ToTensor()
 
@@ -83,6 +89,7 @@ class ToStackTensor:
 
 
 class ListTransform:
+    
     def __init__(self, transform):
         self.transform = transform
 
@@ -117,6 +124,7 @@ class SquareNP(object):
 
 
 class ResizeNP(object):
+    
     def __init__(self, size=224):
         self.size = size
 
@@ -133,6 +141,7 @@ class ResizeNP(object):
 
 
 class Pad(object):
+    
     def __init__(self, percent=(0, 12), color=(0, 0, 0)):
 
         self.percent = to_tuple(percent, 2)
@@ -151,15 +160,14 @@ class Pad(object):
 
 class BlackBackground(object):
     def __call__(self, image):
-        image = np.array(image)
-        if np.amax(image) > 1:
-            image = image/255
+        image = max_one(image)
         if np.sum(image) > np.sum(1-image):
             image = 1-image
         return image
 
 
 class MultiScale(object):
+    
     def __init__(self, size=224, size_multipliers=(0.9, 0.75, 0.5), return_white_bg=False):
         if isinstance(size_multipliers, tuple):
             size_multipliers = list(size_multipliers)
@@ -170,9 +178,7 @@ class MultiScale(object):
         self.return_white_bg = return_white_bg
 
     def __call__(self, image):
-        image = np.array(image)
-        if np.amax(image) > 1:
-            image = image/255
+        image = max_one(image)
         if np.sum(image) > np.sum(1-image):
             image = 1-image
         images = [image]
@@ -218,37 +224,26 @@ class MultiScale(object):
 class EdgeDetector(object):
 
     def __init__(self, edge_mode='normal'):
-        if isinstance(edge_mode, list):
-            edge_mode = [x.lower() for x in edge_mode]
-            if 'all' in edge_mode or 'normal' in edge_mode or 'a' in edge_mode or 'n' in edge_mode:
-                self.edge_mode = 'all'
-            else:
-                self.edge_mode = edge_mode[random.randint(0, len(edge_mode)-1)]
-        else:
-            self.edge_mode = edge_mode.lower()
+        self.edge_mode = edge_mode
 
     def __call__(self, image):
-        image = np.array(image)
-        if np.amax(image) > 1:
-            image = image/255
-        if len(image.shape) < 2:
-            print('There are not enough edge maps in the channels to choose from')
-            return  np.dstack((image, image, image))
-        if (np.array_equal(image[:, :, 0], image[:, :, 1])
-                and np.array_equal(image[:, :, 0], image[:, :, 2])):
-            image = image[:, :, 0]
-        else:
-            if self.edge_mode in ['normal', 'all', 'n', 'a']:
-                self.edge_mode = random.choice(['dollar', 'hed', 'bdcn'])
-
-            if self.edge_mode in ['hed', 'h']:
-                image = image[:, :, 1]
-            elif self.edge_mode in ['bdcn', 'b']:
-                image = image[:, :, 0]
+        image = max_one(image)
+        if isinstance(self.edge_mode, list):
+            edge_mode = [x.lower() for x in self.edge_mode]
+            if 'all' in edge_mode or 'normal' in edge_mode or 'a' in edge_mode or 'n' in edge_mode:
+                edge_mode = random.choice(['dollar', 'hed', 'bdcn'])
             else:
-                image = image[:, :, 2]
-                if self.edge_mode not in ['dollar', 'dol', 'd']:
-                    print(self.edge_mode, 'not a valid edge mode, Dollar was used by default')
+                edge_mode = edge_mode[random.randint(0, len(edge_mode)-1)]
+        else:
+            edge_mode = self.edge_mode.lower()
+        if edge_mode in ['bdcn', 'b']:
+            image = image[:, :, 0]
+        elif edge_mode in ['hed', 'h']:
+            image = image[:, :, 1]
+        else:
+            image = image[:, :, 2]
+            if edge_mode not in ['dollar', 'dol', 'd']:
+                print(self.edge_mode, 'not a valid edge mode, Dollar was used by default')
 
         image = np.dstack((image, image, image))
         return image
