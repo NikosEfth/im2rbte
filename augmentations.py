@@ -236,6 +236,8 @@ class EdgeDetector(object):
                 edge_mode = edge_mode[random.randint(0, len(edge_mode)-1)]
         else:
             edge_mode = self.edge_mode.lower()
+        if edge_mode in ['all', 'normal', 'a', 'n']:
+            edge_mode = random.choice(['dollar', 'hed', 'bdcn'])
         if edge_mode in ['bdcn', 'b']:
             image = image[:, :, 0]
         elif edge_mode in ['hed', 'h']:
