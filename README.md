@@ -1,4 +1,4 @@
-# Large-Scale Sketch Classification
+# Edge Augmentation for Large Scale Sketch Recognition without Sketches
 
 ## Dependencies
 
