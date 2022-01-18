@@ -1,4 +1,4 @@
-# Edge Augmentation for Large Scale Sketch Recognition without Sketches
+# Edge Augmentation for Large-Scale Sketch Recognition without Sketches
 
 ## Dependencies
 
