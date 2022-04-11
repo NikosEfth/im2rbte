@@ -103,6 +103,8 @@ def pil_loader(path):
         img = PIL.Image.open(file)
         return img.convert('RGB')
 
+IMAGE_EXTS = ['.jpg', '.png', '.jpeg']
+    
 
 class ImageFolderSubsetPath(tv.datasets.ImageFolder):
     def __init__(self, image_list, class_list, transform=None, target_transform=None, 
@@ -130,8 +132,16 @@ class ImageFolderSubsetPath(tv.datasets.ImageFolder):
 
     def __getitem__(self, index):
         path, target = self.samples[index]
-        image = self.loader(path)
-
+        if os.path.isfile(path):
+            image = self.loader(path)
+        else:
+            if path[0] == '.':
+                tmp_image_dir = '.'+path.split('.')[1]
+            else:
+                tmp_image_dir = path.split('.')[0]
+            for ext in IMAGE_EXTS:
+                if os.path.isfile(tmp_image_dir+ext):
+                    image = self.loader(tmp_image_dir+ext)
         if self.target_transform is not None:
             target = self.target_transform(target)
         if self.transform is not None:
