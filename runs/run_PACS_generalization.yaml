@@ -8,7 +8,7 @@ io_var:
   val_dataset_list:
     - ./Data/PACS/original_classes_photo_val.csv
   test_dataset_list: 
-    - name: sketchy
+    - name: PACS
       directory:
         - ./Data/PACS/original_classes_sketch.csv
   load_model: None #a valid option is None
