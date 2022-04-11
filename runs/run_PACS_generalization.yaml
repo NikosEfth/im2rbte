@@ -2,15 +2,15 @@ no_trainings: 20
 io_var:
   save_dir: ./Results/
   save_folder_name: generalization_table
-  save_subfolder_name: PACS_id4_30_ep
+  save_subfolder_name: PACS_id4
   train_dataset_list: 
-    - ./Data/PACS/photo_train.csv
+    - ./Data/PACS/original_classes_photo_train.csv
   val_dataset_list:
-    - ./Data/PACS/photo_val.csv
+    - ./Data/PACS/original_classes_photo_val.csv
   test_dataset_list: 
     - name: sketchy
       directory:
-        - ./Data/PACS/sketch_test.csv
+        - ./Data/PACS/original_classes_sketch.csv
   load_model: None #a valid option is None
   nms_model: ./Pretrained_Models/opencv_extra.yml.gz
 train:
