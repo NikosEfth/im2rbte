@@ -33,7 +33,6 @@ To run an experiment specified by the corresponding yaml file:
 ```
 python method.py run_im4sketch_id5.yaml
 ```
-or
 ```
 python method.py --run run_sketchy_id5.yaml
 ```
