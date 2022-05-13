@@ -5,11 +5,15 @@ This is the official implementation of the method proposed in the paper [Edge Au
 ![image](https://user-images.githubusercontent.com/11415657/168291007-4b690233-19a3-47a7-b9e6-7132bb26058f.png)
 
 ## Quick Description
-<p float="center">
+
+<p align="center">
+  
 ![Untitled](https://user-images.githubusercontent.com/11415657/168300243-b34e2735-fc44-4746-9439-d46272f8702f.png)
 
 The goal of this work is to recognize sketches at test time without any sketches at training time. Labeled natural images are transformed to rBTEs with different level of details to bridge the domain gap. Combined with geometric augmentations, the transformed dataset is used to train a deep network that is able to classify sketches. For the training, the novel dataset Im4Sketch is introduced as a superset of already existing real and sketch datasets. The classes are regrouped according to shape criteria. E.g. the class bear of Im4Sketch contains the original ImageNet classes “American Black Bear” and “Ice Bear” whose shape is indistinguishable. Sketches are collected from original datasets with different level of detail.
+  
 </p>
+
 ## Dependencies
 
 * Install [PyTorch](http://pytorch.org/) and [Torchvision](http://pytorch.org/)
