@@ -6,7 +6,7 @@ This is the official implementation of the method proposed in the paper [Edge Au
 
 ## Quick Description
 
-<p align="center">
+<p align="justify">
   
 ![Untitled](https://user-images.githubusercontent.com/11415657/168300243-b34e2735-fc44-4746-9439-d46272f8702f.png)
 
