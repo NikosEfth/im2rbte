@@ -41,6 +41,9 @@ python method.py --run run_sketchy_id5.yaml
 
 For more information about the Im4Sketch dataset please visit the [Im4Sketch](http://cmp.felk.cvut.cz/im4sketch/) dataset webpage
 
+![image](https://user-images.githubusercontent.com/11415657/168289673-7ab8104c-e826-47b2-865d-e8d1b76d8581.png)
+
+
 ## External code used
 
 For the creation of Im4Sketch and its sub-datasets used for our experiments we used the following code:
