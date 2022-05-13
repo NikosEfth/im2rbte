@@ -1,14 +1,6 @@
 # Edge Augmentation for Large-Scale Sketch Recognition without Sketches
-
-<p align="justify">
   
 This is the official implementation of the method proposed in the paper [Edge Augmentation for Large-Scale Sketch Recognition without Sketches](https://arxiv.org/abs/2202.13164). 
-
-![image](https://user-images.githubusercontent.com/11415657/168291007-4b690233-19a3-47a7-b9e6-7132bb26058f.png)
-
-Overview of the training pipeline. Natural images are transformed into rBTEs, which are used with class labels to train a network classifier with
-cross-entropy loss. The obtained network is used to classify free-hand sketches into the object categories
-</p>
 
 ## Quick Description
 
@@ -17,6 +9,15 @@ cross-entropy loss. The obtained network is used to classify free-hand sketches 
 ![Untitled](https://user-images.githubusercontent.com/11415657/168300243-b34e2735-fc44-4746-9439-d46272f8702f.png)
 
 The goal of this work is to recognize sketches at test time without any sketches at training time. Labeled natural images are transformed to rBTEs with different level of details to bridge the domain gap. Combined with geometric augmentations, the transformed dataset is used to train a deep network that is able to classify sketches. For the training, the novel dataset Im4Sketch is introduced as a superset of already existing real and sketch datasets. The classes are regrouped according to shape criteria. E.g. the class bear of Im4Sketch contains the original ImageNet classes “American Black Bear” and “Ice Bear” whose shape is indistinguishable. Sketches are collected from original datasets with different level of detail.
+</p>
+
+## Pipeline
+
+<p align="justify">
+![image](https://user-images.githubusercontent.com/11415657/168291007-4b690233-19a3-47a7-b9e6-7132bb26058f.png)
+
+Overview of the training pipeline. Natural images are transformed into rBTEs, which are used with class labels to train a network classifier with
+cross-entropy loss. The obtained network is used to classify free-hand sketches into the object categories
 </p>
 
 ## Dependencies
@@ -44,7 +45,7 @@ python downloader.py
 
 Or download manualy [here](http://ptak.felk.cvut.cz/im4sketch/)
 
-## Method run
+## Method Run
 
 To run an experiment specified by the corresponding yaml file:
 
@@ -55,14 +56,14 @@ python method.py --run run_im4sketch_id5.yaml
 python method.py --run run_sketchy_id5.yaml
 ```
 
-## Im4Sketch
+## Im4Sketch Dataset
 
 For more information about the Im4Sketch dataset please visit the [Im4Sketch](http://cmp.felk.cvut.cz/im4sketch/) dataset webpage
 
 ![image](https://user-images.githubusercontent.com/11415657/168289673-7ab8104c-e826-47b2-865d-e8d1b76d8581.png)
 
 
-## External code
+## External Code
 
 For the creation of the Im4Sketch dataset and its sub-datasets used for our experiments, we use the following code:
 
