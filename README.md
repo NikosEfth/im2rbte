@@ -2,7 +2,7 @@
 
 This is the official implementation of the method proposed in the paper [Edge Augmentation for Large-Scale Sketch Recognition without Sketches](https://arxiv.org/abs/2202.13164). 
 
-![image](https://user-images.githubusercontent.com/11415657/168290096-343019e9-78c5-473d-8091-ecc88eab0aa6.png)
+![image](https://user-images.githubusercontent.com/11415657/168291007-4b690233-19a3-47a7-b9e6-7132bb26058f.png)
 
 ## Dependencies
 
@@ -49,7 +49,7 @@ For more information about the Im4Sketch dataset please visit the [Im4Sketch](ht
 
 ## External code used
 
-For the creation of Im4Sketch and its sub-datasets used for our experiments we used the following code:
+For the creation of the Im4Sketch dataset and its sub-datasets used for our experiments, we use the following code:
 
 * BDCN official code: https://github.com/pkuCactus/BDCN
 * HED reimplementation in python: https://github.com/sniklaus/pytorch-hed
