@@ -8,7 +8,7 @@ This is the official implementation of the method proposed in the paper [Edge Au
 The goal of this work is to recognize sketches at test time (bottom row) without any sketches at training time. Labeled natural images (top row) are transformed to rBTEs with different level of details (the two middle rows are two instances of rBTE per natural image, thickened for visualization) to bridge the domain gap. Combined with geometric augmentations, the transformed dataset is used to train a deep network that is able to classify sketche
 
 <p align="center">
-  <img width="460" height="300" src="https://user-images.githubusercontent.com/11415657/168294110-2b7c0443-c17f-45ba-b0d3-3bb4ae3c8155.png">
+  <img src="https://user-images.githubusercontent.com/11415657/168294110-2b7c0443-c17f-45ba-b0d3-3bb4ae3c8155.png">
 </p>
 
 ## Dependencies
