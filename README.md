@@ -1,6 +1,9 @@
 # Edge Augmentation for Large-Scale Sketch Recognition without Sketches
 
 This is the official implementation of the method proposed in the paper [Edge Augmentation for Large-Scale Sketch Recognition without Sketches](https://arxiv.org/abs/2202.13164). 
+
+![image](https://user-images.githubusercontent.com/11415657/168290096-343019e9-78c5-473d-8091-ecc88eab0aa6.png)
+
 ## Dependencies
 
 * Install [PyTorch](http://pytorch.org/) and [Torchvision](http://pytorch.org/)
