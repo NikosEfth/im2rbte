@@ -4,6 +4,11 @@ This is the official implementation of the method proposed in the paper [Edge Au
 
 ![image](https://user-images.githubusercontent.com/11415657/168291007-4b690233-19a3-47a7-b9e6-7132bb26058f.png)
 
+## Quick Description
+The goal of this work is to recognize sketches at test time (bottom row) without any sketches at training time. Labeled natural images (top row) are transformed to rBTEs with different level of details (the two middle rows are two instances of rBTE per natural image, thickened for visualization) to bridge the domain gap. Combined with geometric augmentations, the transformed dataset is used to train a deep network that is able to classify sketche
+
+![image](https://user-images.githubusercontent.com/11415657/168294110-2b7c0443-c17f-45ba-b0d3-3bb4ae3c8155.png)
+
 ## Dependencies
 
 * Install [PyTorch](http://pytorch.org/) and [Torchvision](http://pytorch.org/)
