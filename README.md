@@ -6,21 +6,14 @@ This is the official implementation of the method proposed in the paper [Edge Au
   
 ![Untitled](https://user-images.githubusercontent.com/11415657/168300243-b34e2735-fc44-4746-9439-d46272f8702f.png)
 
-<p style='text-align: justify;'>
-  
-  The goal of this work is to recognize sketches at test time without using any sketches at training time. Labeled natural images are transformed to a pseudo-novel domain called “randomized Binary Thin Edges” (rBTEs), with different level of details to bridge the domain gap. Combined with geometric augmentations, the transformed dataset is used to train a deep network that is able to classify sketches. For the training, the novel dataset Im4Sketch is introduced as a superset of already existing natural-image and sketch datasets. The classes are regrouped according to shape criteria. E.g. the class bear of Im4Sketch contains the original ImageNet classes “American Black Bear” and “Ice Bear” whose shape is indistinguishable. Sketches are collected from original sketch datasets with different level of detail.
-
-</p>
+The goal of this work is to recognize sketches at test time without using any sketches at training time. Labeled natural images are transformed to a pseudo-novel domain called “randomized Binary Thin Edges” (rBTEs), with different level of details to bridge the domain gap. Combined with geometric augmentations, the transformed dataset is used to train a deep network that is able to classify sketches. For the training, the novel dataset Im4Sketch is introduced as a superset of already existing natural-image and sketch datasets. The classes are regrouped according to shape criteria. E.g. the class bear of Im4Sketch contains the original ImageNet classes “American Black Bear” and “Ice Bear” whose shape is indistinguishable. Sketches are collected from original sketch datasets with different level of detail.
 
 ## Pipeline
 
-<p align="justify">
-  
 ![image](https://user-images.githubusercontent.com/11415657/168291007-4b690233-19a3-47a7-b9e6-7132bb26058f.png)
 
 Overview of the training pipeline. Natural images are transformed into rBTEs, which are used with class labels to train a network classifier with
 cross-entropy loss. The obtained network is used to classify free-hand sketches into the object categories
-</p>
 
 ## Dependencies
 
