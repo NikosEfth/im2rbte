@@ -40,3 +40,11 @@ python method.py --run run_sketchy_id5.yaml
 ## Im4Sketch
 
 For more information about the Im4Sketch dataset please visit the [Im4Sketch](http://cmp.felk.cvut.cz/im4sketch/) dataset webpage
+
+## External code used
+
+For the creation of Im4Sketch and its sub-datasets used for our experiments we used the following code:
+
+* BDCN official code: https://github.com/pkuCactus/BDCN
+* HED reimplementation in python: https://github.com/sniklaus/pytorch-hed
+* Structured Forests official code: https://github.com/pdollar/toolbox
