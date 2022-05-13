@@ -47,10 +47,10 @@ Or download manualy [here](http://ptak.felk.cvut.cz/im4sketch/)
 To run an experiment specified by the corresponding yaml file:
 
 ```
-python method.py --run run_im4sketch_id5.yaml
+python method.py --run run_im4sketch.yaml
 ```
 ```
-python method.py --run run_sketchy_id5.yaml
+python method.py --run run_sketchy_id4.yaml
 ```
 
 ## Im4Sketch Dataset
