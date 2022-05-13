@@ -47,7 +47,7 @@ For more information about the Im4Sketch dataset please visit the [Im4Sketch](ht
 ![image](https://user-images.githubusercontent.com/11415657/168289673-7ab8104c-e826-47b2-865d-e8d1b76d8581.png)
 
 
-## External code used
+## External code
 
 For the creation of the Im4Sketch dataset and its sub-datasets used for our experiments, we use the following code:
 
