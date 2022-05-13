@@ -14,6 +14,7 @@ The goal of this work is to recognize sketches at test time without any sketches
 ## Pipeline
 
 <p align="justify">
+  
 ![image](https://user-images.githubusercontent.com/11415657/168291007-4b690233-19a3-47a7-b9e6-7132bb26058f.png)
 
 Overview of the training pipeline. Natural images are transformed into rBTEs, which are used with class labels to train a network classifier with
