@@ -4,7 +4,7 @@ This is the official implementation of the method proposed in the paper [Edge Au
 
 ## Quick Description
   
-![Untitled](https://user-images.githubusercontent.com/11415657/168300243-b34e2735-fc44-4746-9439-d46272f8702f.png)
+![Untitled3](https://user-images.githubusercontent.com/11415657/168404222-f65833d6-9e49-4dc5-8e83-21112ea2b6ce.jpg)
 
 The goal of this work is to recognize sketches at test time without using any sketches at training time. Labeled natural images are transformed to a pseudo-novel domain called “randomized Binary Thin Edges” (rBTEs), with different level of details to bridge the domain gap. Combined with geometric augmentations, the transformed dataset is used to train a deep network that is able to classify sketches. 
 
@@ -12,7 +12,7 @@ For the training, the novel dataset Im4Sketch is introduced as a superset of alr
 
 ## Pipeline
 
-![image](https://user-images.githubusercontent.com/11415657/168291007-4b690233-19a3-47a7-b9e6-7132bb26058f.png)
+![168291007-4b690233-19a3-47a7-b9e6-7132bb26058f](https://user-images.githubusercontent.com/11415657/168404210-18e3fd1b-2788-4acb-83c0-ac24ddd49571.jpg)
 
 Overview of the training pipeline. Natural images are transformed into rBTEs, which are used with class labels to train a network classifier with
 cross-entropy loss. The obtained network is used to classify free-hand sketches into the object categories
@@ -65,5 +65,6 @@ For the creation of the Im4Sketch dataset and its sub-datasets used for our expe
 
 For more information about the Im4Sketch dataset please visit the [Im4Sketch](http://cmp.felk.cvut.cz/im4sketch/) dataset webpage
 
-![image](https://user-images.githubusercontent.com/11415657/168289673-7ab8104c-e826-47b2-865d-e8d1b76d8581.png)
+![168289673-7ab8104c-e826-47b2-865d-e8d1b76d85812](https://user-images.githubusercontent.com/11415657/168404201-d4eb08b1-e93b-4972-a706-62a8a8db89ae.jpg)
+
 
