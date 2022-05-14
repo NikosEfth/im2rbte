@@ -25,7 +25,7 @@ cross-entropy loss. The obtained network is used to classify free-hand sketches 
 * Install NumPy: `pip install numpy`
 * Install OpenCV: `pip install opencv-contrib-python`
 * Install Scikit-Image: `python -m pip install -U scikit-image`
-* Tested with Python 3.8.6, PyTorch 1.9.0, Torchvision 0.10.0, CUDA 11.1, cuDNN 8.0.5.39 on a Tesla P100-PCIE-16gb
+* Tested with Python 3.8.6, PyTorch 1.9.0, Torchvision 0.10.0, CUDA 11.1, cuDNN 8.0.5.39 on a Tesla P100-PCIE-16GB
 
 ## Downloader
 
