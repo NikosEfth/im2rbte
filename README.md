@@ -37,8 +37,8 @@ python downloader.py
 
 * with `--dataset` you specify a dataset to be downloaded, ie: `python downloader.py --dataset pacs`. By specifying "domainnet", "imagenet", "pacs", "sketchy", or "tu-berlin", the im4sketch part of the corresponding dataset is downloading. By specifying nothing, the default is to download the whole im4sketch
 * with `--download` and `--extract` you specify if the chosen dataset is for downloading, extracting it from the tar files, or both ie `python downloader.py --dataset pacs --download no --extract yes`
-* with `--delete` you choose if you want the tar files deleted after the extraction (default is no) ie `python downloader.py --delete yes`
-* with `--models` you specify if you want the nms model (mandatory for the method) and the im4sketch pretrained model (mandatory for id5 run) to be downloaded `python downloader.py --models yes`
+* with `--delete` you choose if you want the tar files deleted after the extraction (default is no) i.e. `python downloader.py --delete yes`
+* with `--models` you specify if you want the nms model (mandatory for the method) and the im4sketch pretrained model (mandatory for Table 3 - id5 run) to be downloaded i.e. `python downloader.py --models yes`
 
 Or download manualy [here](http://ptak.felk.cvut.cz/im4sketch/)
 
@@ -81,6 +81,8 @@ Table 5 - Im4Sketch
 ```
 python method.py --run run_im4sketch.yaml
 ```
+
+The last experiment reproduces the downloadable `./Pretrained_Models/im4sketch_model.pt` which is mandatory for the Table 3 - id5 experiment. If the file is not downloaded and instead is excecuted, then the renaming and copying to the aforementioned folder should be done manually.  
 
 ## External Code
 
