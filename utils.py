@@ -7,7 +7,15 @@ import yaml
 import augmentations as aug
 import torch
 import torchvision as tv
+import random
+import numpy as np
 
+def set_all_seeds(seed):
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+    torch.backends.cudnn.deterministic = True
 
 def create_transform(input_list, nms_model=None):
     transform_list = []
@@ -104,7 +112,6 @@ def pil_loader(path):
         return img.convert('RGB')
 
 IMAGE_EXTS = ['.jpg', '.png', '.jpeg']
-    
 
 class ImageFolderSubsetPath(tv.datasets.ImageFolder):
     def __init__(self, image_list, class_list, transform=None, target_transform=None, 
@@ -325,7 +332,6 @@ def epoch_run(net, data_loader, criterion, gpu_id, optimizer, name=None, train=T
         'loading_seconds': loading_seconds, 
         'rest_seconds': rest_seconds
         }
-
     return epoch_results
 
 
@@ -446,7 +452,7 @@ def training(net, criterion, optimizer, scheduler, train_data_loader, val_data_l
     if not os.path.exists(representations):
         os.makedirs(representations)
 
-    for epoch in range(total_epochs):
+    for epoch in range(1, total_epochs + 1):
         train_epoch_results = epoch_run(net=net, data_loader=train_data_loader, 
                                         criterion=criterion, gpu_id=gpu_id, optimizer=optimizer, 
                                         name='Train', train=True, schedule=scheduler)
@@ -455,19 +461,22 @@ def training(net, criterion, optimizer, scheduler, train_data_loader, val_data_l
                                       schedule=scheduler)
         train_epoch_list.append(train_epoch_results)
         val_epoch_list.append(val_epoch_results)
-        print_epoch(epoch_list=[train_epoch_results, val_epoch_results], epoch=epoch+1, 
+        print_epoch(epoch_list=[train_epoch_results, val_epoch_results], epoch=epoch, 
                     learning_rate=round(get_lr(optimizer), 8))
-        print('Saving the model')
         save_log([train_epoch_list, val_epoch_list], direct)
-        save_model(net=net, optimizer=optimizer, epoch=epoch+1, direct=direct, 
-                   name='Epoch_'+str(epoch+1))
-        epoch_dir = representations + '/epoch_'+str(epoch+1)
+        if epoch == total_epochs:
+            print('Saving the model')
+            save_model(net=net, optimizer=optimizer, epoch=epoch, direct=direct, 
+                       name='Epoch_'+str(epoch))
+        epoch_dir = representations + '/epoch_'+str(epoch)
         if not os.path.exists(epoch_dir):
             os.makedirs(epoch_dir)
         save_input(inputs=train_epoch_results['inputs_example'], save_no=9, direct=epoch_dir, 
                    name=train_epoch_results['name'])
         save_input(inputs=val_epoch_results['inputs_example'], save_no=9, direct=epoch_dir, 
                    name=val_epoch_results['name'])
+        train_epoch_list[len(train_epoch_list)-1]['inputs_example'] = None
+        val_epoch_list[len(val_epoch_list)-1]['inputs_example'] = None
 
     return 'Epoch_'+str(total_epochs)+'.pt'
 
