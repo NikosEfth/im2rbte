@@ -44,13 +44,40 @@ Or download manualy [here](http://ptak.felk.cvut.cz/im4sketch/)
 
 ## Method Run
 
-To run an experiment specified by the corresponding yaml file:
+Table 3 - Sketchy ablations
 
 ```
-python method.py --run run_im4sketch.yaml
+python method.py --run run_sketchy_id1.yaml
+```
+```
+python method.py --run run_sketchy_id2.yaml
+```
+```
+python method.py --run run_sketchy_id3.yaml
 ```
 ```
 python method.py --run run_sketchy_id4.yaml
+```
+```
+python method.py --run run_sketchy_id5.yaml
+```
+```
+python method.py --run run_sketchy_id6.yaml
+```
+```
+python method.py --run run_sketchy_id7.yaml
+```
+
+Table 4 - PACS generalization
+
+```
+python method.py --run run_PACS_generalization.yaml
+```
+
+Table 5 - Im4Sketch
+
+```
+python method.py --run run_im4sketch.yaml
 ```
 
 ## External Code
