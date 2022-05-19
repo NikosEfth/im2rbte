@@ -29,16 +29,16 @@ cross-entropy loss. The obtained network is used to classify free-hand sketches 
 
 ## Downloader
 
-To download all the datasets and the pretrained models needed:
+To download the Im4Sketch dataset as well as the pretrained models needed for the experiments:
 
 ```
 python downloader.py 
 ```
 
-* with `--dataset` you specify a dataset to be downloaded, ie: `python downloader.py --dataset pacs`. By specifying "domainnet", "imagenet", "pacs", "sketchy", or "tu-berlin", the im4sketch part of the corresponding dataset is downloading. By specifying nothing, the default is to download the whole im4sketch
+* with `--dataset` you can choose a specific Im4Sketch sub-dataset to be downloaded, i.e. `python downloader.py --dataset pacs`. The choices are "domainnet", "imagenet", "pacs", "sketchy", or "tu-berlin". The default is to download the whole im4sketch.
 * with `--download` and `--extract` you specify if the chosen dataset is for downloading, extracting it from the tar files, or both i.e. `python downloader.py --dataset pacs --download no --extract yes`
 * with `--delete` you choose if you want the tar files deleted after the extraction (default is no) i.e. `python downloader.py --delete yes`
-* with `--models` you specify if you want the nms model (mandatory for the method) and the im4sketch pretrained model (mandatory for Table 3 - id5 run) to be downloaded i.e. `python downloader.py --models yes`
+* with `--models` you specify if you want the nms model (mandatory for all experiments) and the Im4Sketch pretrained model (mandatory for Table 3 - id5 run) to be downloaded i.e. `python downloader.py --models yes`
 
 Or download manually [here](http://ptak.felk.cvut.cz/im4sketch/)
 
