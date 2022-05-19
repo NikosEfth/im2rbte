@@ -28,6 +28,7 @@ def train_test():
         run['train']['gpu'] = vars(args)['gpu']
     test_results = []
     for idx in range(run['no_trainings']):
+        ut.set_all_seeds(idx)
         direct = run['io_var']['save_dir'] + run['io_var']['save_folder_name'] + '/' \
         + run['io_var']['save_subfolder_name'] + '_' + str(idx + 1)
         if not os.path.exists(direct): 
@@ -96,7 +97,6 @@ def train_test():
                        direct=direct, start_lr=0.0000001, end_lr=10, step_size=50, gamma=10)
 
         # Training
-        ut.set_all_seeds(idx)
         last_model_name = ut.training(net=net, criterion=criterion, optimizer=optimizer,
                                       scheduler=scheduler, train_data_loader=train_data_loader,
                                       val_data_loader=val_data_loader, 
