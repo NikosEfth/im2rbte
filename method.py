@@ -13,23 +13,23 @@ import torchvision as tv
 import torch
 #import pdb
 
+
 def train_test():
     # Read the terminal variables
     cv.setNumThreads(0)
     parser = argparse.ArgumentParser(description='Training the Model')
     parser.add_argument('--run', default='', type=str, metavar='TrRun', help='Input training file')
+    parser.add_argument('--gpu', type=int, metavar='gpu', help='gpu id')
     args = parser.parse_args()
     if not sys.warnoptions:
         warnings.simplefilter('ignore')
     run = ut.read_yaml('./runs/' + vars(args)['run'])
+    if vars(args)['gpu'] is not None:
+        run['train']['gpu'] = vars(args)['gpu']
     test_results = []
-    for i in range(1, run['no_trainings'] + 1):
+    for idx in range(run['no_trainings']):
         direct = run['io_var']['save_dir'] + run['io_var']['save_folder_name'] + '/' \
-        + run['io_var']['save_subfolder_name'] + '_' + str(i)
-        if not os.path.exists(run['io_var']['save_dir']):
-            os.makedirs(run['io_var']['save_dir'])
-        if not os.path.exists(run['io_var']['save_dir'] + run['io_var']['save_folder_name']):
-            os.makedirs(run['io_var']['save_dir'] + run['io_var']['save_folder_name'])
+        + run['io_var']['save_subfolder_name'] + '_' + str(idx + 1)
         if not os.path.exists(direct): 
             os.makedirs(direct)
         nms_model = cv.ximgproc.createStructuredEdgeDetection(run['io_var']['nms_model'])
@@ -90,12 +90,13 @@ def train_test():
         criterion = torch.nn.CrossEntropyLoss()
 
         # Learning Rate Search
-        if run['extra_options']['lr_mode']:
+        if run['extra_options']['lr_mode'] and idx == 0:
             ut.lr_tool(net=net, criterion=criterion, original_optimizer=optimizer, 
                        train_data_loader=train_data_loader, gpu_id=run['train']['gpu'],
                        direct=direct, start_lr=0.0000001, end_lr=10, step_size=50, gamma=10)
 
         # Training
+        ut.set_all_seeds(idx)
         last_model_name = ut.training(net=net, criterion=criterion, optimizer=optimizer,
                                       scheduler=scheduler, train_data_loader=train_data_loader,
                                       val_data_loader=val_data_loader, 
@@ -140,6 +141,7 @@ def train_test():
                                 +run['io_var']['save_folder_name']+'/'\
                                 +run['io_var']['save_subfolder_name']\
                                 +'_'+str(run['no_trainings']))
+
 
 if __name__ == '__main__':
     train_test()
