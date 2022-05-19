@@ -14,7 +14,7 @@ io_var:
   load_model: None #a valid option is None
   nms_model: ./Pretrained_Models/opencv_extra.yml.gz
 train:
-  gpu: 5
+  gpu: 0
   workers: 6
   batch: 64
   learning_rate: 0.0001
