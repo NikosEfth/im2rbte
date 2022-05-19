@@ -1,7 +1,7 @@
 no_trainings: 20
 io_var:
   save_dir: ./Results/
-  save_folder_name: generalization_table
+  save_folder_name: table_4
   save_subfolder_name: PACS_id4
   train_dataset_list: 
     - ./Data/PACS/original_classes_photo_train.csv
@@ -14,7 +14,7 @@ io_var:
   load_model: None #a valid option is None
   nms_model: ./Pretrained_Models/opencv_extra.yml.gz
 train:
-  gpu: 4
+  gpu: 0
   workers: 6
   batch: 64
   learning_rate: 0.0001
