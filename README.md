@@ -44,7 +44,9 @@ Or download manualy [here](http://ptak.felk.cvut.cz/im4sketch/)
 
 ## Method Run
 
-Table 3 - Sketchy ablations
+The results of the paper can be reproduced as below. The gpu can be specified by e.g. `--gpu 0`.
+
+Table 3 - Sketchy Ablations
 
 ```
 python method.py --run run_sketchy_id1.yaml
@@ -68,7 +70,7 @@ python method.py --run run_sketchy_id6.yaml
 python method.py --run run_sketchy_id7.yaml
 ```
 
-Table 4 - PACS generalization
+Table 4 - PACS Generalization
 
 ```
 python method.py --run run_PACS_generalization.yaml
