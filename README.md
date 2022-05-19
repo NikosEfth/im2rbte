@@ -35,7 +35,7 @@ To download the Im4Sketch dataset as well as the pretrained models needed for th
 python downloader.py 
 ```
 
-* with `--dataset` you can choose a specific Im4Sketch sub-dataset to be downloaded, i.e. `python downloader.py --dataset pacs`. The choices are "domainnet", "imagenet", "pacs", "sketchy", or "tu-berlin". The default is to download the whole im4sketch.
+* with `--dataset` you can choose a specific Im4Sketch sub-dataset to be downloaded, e.g. `python downloader.py --dataset pacs`. The choices are: "domainnet", "imagenet", "pacs", "sketchy", or "tu-berlin". The default is to download the whole im4sketch.
 * with `--download` and `--extract` you specify if the chosen dataset is for downloading, extracting it from the tar files, or both i.e. `python downloader.py --dataset pacs --download no --extract yes`
 * with `--delete` you choose if you want the tar files deleted after the extraction (default is no) i.e. `python downloader.py --delete yes`
 * with `--models` you specify if you want the nms model (mandatory for all experiments) and the Im4Sketch pretrained model (mandatory for Table 3 - id5 run) to be downloaded i.e. `python downloader.py --models yes`
