@@ -18,16 +18,16 @@ io_var:
         - ./Data/DomainNet/im4sketch_classes_quickdraw_test.csv
     - name: TUB
       directory: 
-        - /mnt/lascar/qqefthym/AA4_TU-Berlin_Extended256/Combination_TU-Berlin/global_classes_v2_Original_Sketches.csv
+        - ./Data/TU-Berlin/im4sketch_classes_sketches.csv
     - name: sketchy
       directory: 
-        - /mnt/lascar/qqefthym/AA5_Sketchy/Combination_Sketchy/global_classes_v2_Original_Sketches_test.csv 
+        - ./Data/Sketchy/im4sketch_classes_sketches_test.csv
     - name: PACS
       directory: 
-        - /mnt/lascar/qqefthym/AA3_PACS/Combination_PACS/global_classes_v2_original_sketch.csv
+        - ./Data/PACS/im4sketch_classes_sketch.csv
     - name: DN
       directory: 
-        - /mnt/lascar/qqefthym/AA2_DomainNet/Combination_DomainNet/global_classes_v2_original_quickdraw_test.csv
+        - ./Data/DomainNet/im4sketch_classes_quickdraw_test.csv
   load_model: None
   nms_model: ./Pretrained_Models/opencv_extra.yml.gz
 train:
