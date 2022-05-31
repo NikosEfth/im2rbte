@@ -96,6 +96,6 @@ For the creation of the Im4Sketch dataset and its sub-datasets used for our expe
 
 For more information about the Im4Sketch dataset please visit the [Im4Sketch](http://cmp.felk.cvut.cz/im4sketch/) dataset webpage
 
-![168289673-7ab8104c-e826-47b2-865d-e8d1b76d85812](https://user-images.githubusercontent.com/11415657/168404201-d4eb08b1-e93b-4972-a706-62a8a8db89ae.jpg)
+![Im4Sketch2](https://user-images.githubusercontent.com/11415657/171275859-3bc572c6-8e4f-4d8a-b5bf-bceed1327704.jpg)
 
 
