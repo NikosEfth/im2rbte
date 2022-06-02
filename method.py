@@ -27,10 +27,10 @@ def train_test():
     if vars(args)['gpu'] is not None:
         run['train']['gpu'] = vars(args)['gpu']
     test_results = []
-    for idx in range(run['no_trainings']):
+    for idx in range(1, run['no_trainings'] + 1):
         ut.set_all_seeds(idx)
         direct = run['io_var']['save_dir'] + run['io_var']['save_folder_name'] + '/' \
-        + run['io_var']['save_subfolder_name'] + '_' + str(idx + 1)
+        + run['io_var']['save_subfolder_name'] + '_' + str(idx)
         if not os.path.exists(direct): 
             os.makedirs(direct)
         nms_model = cv.ximgproc.createStructuredEdgeDetection(run['io_var']['nms_model'])
@@ -91,7 +91,7 @@ def train_test():
         criterion = torch.nn.CrossEntropyLoss()
 
         # Learning Rate Search
-        if run['extra_options']['lr_mode'] and idx == 0:
+        if run['extra_options']['lr_mode'] and idx == 1:
             ut.lr_tool(net=net, criterion=criterion, original_optimizer=optimizer, 
                        train_data_loader=train_data_loader, gpu_id=run['train']['gpu'],
                        direct=direct, start_lr=0.0000001, end_lr=10, step_size=50, gamma=10)
