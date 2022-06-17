@@ -1,6 +1,6 @@
 # Edge Augmentation for Large-Scale Sketch Recognition without Sketches
   
-This is the official implementation of the method proposed in the paper [Edge Augmentation for Large-Scale Sketch Recognition without Sketches](https://arxiv.org/abs/2202.13164). 
+This is the official implementation of the method proposed in the ICPR 2022 paper [Edge Augmentation for Large-Scale Sketch Recognition without Sketches](https://arxiv.org/abs/2202.13164). 
 
 ## Quick Description
   
