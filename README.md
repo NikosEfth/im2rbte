@@ -2,8 +2,6 @@
   
 This is the official implementation of the method proposed in the ICPR 2022 paper [Edge Augmentation for Large-Scale Sketch Recognition without Sketches](https://arxiv.org/abs/2202.13164). 
 
-If you find this useful in your research you can cite our paper.
-
 ```
 @inproceedings{im2rBTE2022,
  title = {Edge Augmentation for Large-Scale Sketch Recognition without Sketches},
