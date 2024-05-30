@@ -1,5 +1,9 @@
 # Edge Augmentation for Large-Scale Sketch Recognition without Sketches
-  
+
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/edge-augmentation-for-large-scale-sketch/image-to-sketch-recognition-on-im4sketch)](https://paperswithcode.com/sota/image-to-sketch-recognition-on-im4sketch?p=edge-augmentation-for-large-scale-sketch)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/edge-augmentation-for-large-scale-sketch/image-to-sketch-recognition-on-pacs)](https://paperswithcode.com/sota/image-to-sketch-recognition-on-pacs?p=edge-augmentation-for-large-scale-sketch)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/edge-augmentation-for-large-scale-sketch/image-to-sketch-recognition-on-sketchy)](https://paperswithcode.com/sota/image-to-sketch-recognition-on-sketchy?p=edge-augmentation-for-large-scale-sketch)
+
 This is the official implementation of the method proposed in the ICPR 2022 paper [Edge Augmentation for Large-Scale Sketch Recognition without Sketches](https://arxiv.org/abs/2202.13164). 
 
 ```
