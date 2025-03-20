@@ -9,7 +9,7 @@ This is the official implementation of the method proposed in the ICPR 2022 pape
 ```
 @inproceedings{im2rBTE2022,
  title = {Edge Augmentation for Large-Scale Sketch Recognition without Sketches},
- author = {Efthymiadis, N. and Tolias, G. and Chum, O.},
+ author = {Efthymiadis, Nikos and Tolias, Giorgos and Chum, Ondřej},
  booktitle = {ICPR},
  year = {2022}
 }
